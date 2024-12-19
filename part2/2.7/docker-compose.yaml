@@ -1,0 +1,43 @@
+
+
+services:
+
+  backend:
+    image: web-service-backend
+    build: ./example-backend
+    ports:
+      - 127.0.0.1:8080:8080
+    environment:
+      # backend env
+      - PORT=8080
+      - REQUEST_ORIGIN=http://127.0.0.1:5000
+      # redis env
+      - REDIS_HOST=redisdb
+      # postgres env
+      - POSTGRES_HOST=postgresdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DATABASE=postgres
+    depends_on:
+      - redisdb
+      - postgresdb
+      
+  frontend:
+    image: web-service-frontend
+    build: ./example-frontend
+    ports:
+      - 127.0.0.1:5000:5000
+    environment:
+      - REACT_APP_BACKEND_URL=http://127.0.0.1:8080
+
+  redisdb:
+    image: redis
+
+  postgresdb:
+    image: postgres:17.2-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    container_name: postgres_db
+    volumes:
+      - ./database:/var/lib/postgresql/data
