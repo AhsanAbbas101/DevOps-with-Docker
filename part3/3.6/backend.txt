@@ -1,0 +1,6 @@
+App Size Before: 658MB
+
+> I changed the base image from ubuntu to alpine to reduce size.
+> I combined all the run statements together. 
+
+App Size Now: 542MB

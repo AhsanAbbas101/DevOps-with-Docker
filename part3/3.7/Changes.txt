@@ -1,0 +1,7 @@
+Frontend:
+> No change in frontend as it was using node:16-alpine as base image from the previous exercises.
+
+Backend:
+> The base image is changed to golang:1.16-alpine.
+> Instructions to install golang and cleanup are removed.
+> Image size is reduced to 447MB from 542MB.

@@ -1,0 +1,1 @@
+docker run --env-file ./.env -v /var/run/docker.sock:/var/run/docker.sock builder AhsanAbbas101/Express-App-CI-CD abbasahsan/express-app-ci-cd:builder
