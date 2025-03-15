@@ -1,7 +1,2 @@
-App Size Before: 1.28GB
-
-> Previously the base image being used was node:16 which has a size of 909MB. I replaced it with 16-alpine which has a size of 118MB.
-> I combined the RUN statements for building the project and adding a user. I also tried to combine the RUN statements for installing node packages and building the project (say e.g incase of production build) but the size of the image remains the same.
-
-
-App Size Now: 491MB
+Image size before: 2.09 GB
+Image size after: 1.77 GB
